@@ -1,13 +1,14 @@
 package com.example.demo;
 
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.*;
 
 @Repository
-@Data
+@RequiredArgsConstructor
 
 public class TaskRepository {
 	HashMap<String, Task> allMyTasks = new HashMap<>();
@@ -41,9 +42,9 @@ public class TaskRepository {
 		allMyTasks.put(task.getId(), task);
 	}
 
-		public Task getItemById (String id){
-			return allMyTasks.get(id);
-		}
+	public Task getItemById(String id) {
+		return allMyTasks.get(id);
+	}
 
 	public void editTask(Task task) {
 		allMyTasks.put(task.getId(), task);

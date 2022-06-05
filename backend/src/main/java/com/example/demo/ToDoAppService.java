@@ -1,12 +1,14 @@
 package com.example.demo;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ToDoAppService {
-    TaskRepository taskRepository = new TaskRepository();
+     private final TaskRepository taskRepository;
 
     public Task addTask(Task taskToAdd){
         return taskRepository.addTask(taskToAdd);
