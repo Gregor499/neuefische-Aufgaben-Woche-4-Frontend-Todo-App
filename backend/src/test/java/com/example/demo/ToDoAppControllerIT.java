@@ -1,6 +1,9 @@
 package com.example.demo;
 
 
+import static org.assertj.core.api.Assertions.*;
+
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,17 +14,22 @@ import org.springframework.http.ResponseEntity;
 class ToDoAppControllerIT {
 
 	@Autowired
-	private TestRestTemplate testRestTemplate;
+	private TestRestTemplate restTemplate;
 
-	@Test
+/*	@Test
 	void shouldTestWholeApp() {
 		//GIVEN
 		Task task1 = new Task("new", "blabla", StatusState.OPEN);
 		testRestTemplate.postForEntity("/api/kanban", task1, Void.class);
-		ResponseEntity<>re
+		ResponseEntity<>;
 
 		//THEN
 
+	}*/
+	@Test
+	void integrationsTest(){
+		ResponseEntity<Task[]> emptyResponse = restTemplate.getForEntity("/api/kanban", Task[].class);
+		Assertions.assertThat(emptyResponse.getBody()).isEmpty();
 	}
 
 }
