@@ -1,24 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import Card from "./Card";
+import InputNewTask from "./InputNewTask";
+import './Style.css';
 
 function App() {
-
-    const [greeting, setGreeting] = useState('')
-
-    useEffect(() => {
-        fetch('/api/greeting', {
-            method: 'GET',
-            headers: {
-                'Accept': 'text/plain'
-            }
-        })
-            .then(response => response.text())
-            .then(text => setGreeting(text))
-            .catch(err => setGreeting('Da ist etwas schief gelaufen'));
-    }, []);
-
     return (
-        <div>
-            {greeting}
+        <div className ="app">
+            <div className="headline">
+                <h1>TodoApp</h1>
+            </div>
+            <div className="input-card">
+                <InputNewTask />
+            </div>
+            <div className="card">
+                <Card />
+            </div>
         </div>
     );
 }

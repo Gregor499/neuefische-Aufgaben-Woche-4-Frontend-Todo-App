@@ -28,7 +28,7 @@ class ToDoAppControllerIT {
 	}*/
 	@Test
 	void integrationsTest(){
-		ResponseEntity<Task[]> emptyResponse = restTemplate.getForEntity("/api/kanban", Task[].class);
+		ResponseEntity<Task[]> emptyResponse = restTemplate.getForEntity("/api/react", Task[].class);
 		Assertions.assertThat(emptyResponse.getBody()).isEmpty();
 	}
 

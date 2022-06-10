@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.websocket.server.PathParam;
-
+@CrossOrigin
 @RestController
-@RequestMapping("api/kanban")
+@RequestMapping("api/react")
 @RequiredArgsConstructor
 
 public class ToDoAppController {
@@ -29,6 +29,9 @@ public class ToDoAppController {
 
 	@GetMapping
 	public List<Task> listTasks() {
+		Task testTask = new Task("efef", "sf", StatusState.OPEN);
+		toDoAppService.addTask(testTask);
+
 		return toDoAppService.addedTasks();
 	}
 
