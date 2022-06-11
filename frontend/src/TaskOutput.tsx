@@ -22,6 +22,12 @@ export default function TaskOutput(props: TaskProps) {
                 <div>
                     <span className="label">Status:</span> {props.task.status}
                 </div>
+                <div>
+                    <button className="button2" /*onClick={setPrevious}*/>previous</button>
+                    <button className="button2" /*onClick={setNext}*/>next</button>
+                    <button className="button2" /*onClick={setDelete}*/>delete</button>
+                    <button className="button2" /*onClick={setedit}*/>edit</button>
+                </div>
             </div>
         </div>
     )

@@ -9,9 +9,6 @@ function App() {
             <div className="headline">
                 <h1>TodoApp</h1>
             </div>
-            <div className="input-card">
-                <InputNewTask />
-            </div>
             <div className="card">
                 <Card />
             </div>
