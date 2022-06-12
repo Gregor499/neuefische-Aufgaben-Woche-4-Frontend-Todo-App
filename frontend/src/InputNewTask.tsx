@@ -36,9 +36,9 @@ export default function InputNewTask(props: inputNewTaskProps) {
 
     return (
         <div className="tasks">
-            <input type="text" value={task} placeholder="Aufgabe" onChange={event => setTask(event.target.value)}/>
+            <input className="text-field1" type="text" value={task} placeholder="Aufgabe" onChange={event => setTask(event.target.value)}/>
             <br/>
-            <input type="text" value={description} placeholder="Beschreibung" onChange={event => setDescription(event.target.value)}/>
+            <input className="text-field2" type="text" value={description} placeholder="Beschreibung" onChange={event => setDescription(event.target.value)}/>
             <br/>
             <button className="button1" onClick={input}>bestätigen</button>
             <br/>

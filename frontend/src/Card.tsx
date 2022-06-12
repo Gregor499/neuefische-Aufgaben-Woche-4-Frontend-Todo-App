@@ -36,8 +36,12 @@ export default function Card() {
             </div>
 
             <div className="tasks">
-                <u>Aufgaben:</u>
-                {getList()}
+                <div className={"tasks-headline"}>
+                    <h2><u>Aufgaben:</u></h2>
+                </div>
+                <div>
+                    {getList()}
+                </div>
             </div>
         </div>
     )
