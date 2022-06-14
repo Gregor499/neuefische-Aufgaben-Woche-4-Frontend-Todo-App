@@ -1,13 +1,43 @@
 import {Task} from "./model";
 import './Style.css';
+import React from "react";
+import axios from "axios";
 
 interface TaskProps {
     task: Task
+    onTaskManipulation: () => void;
+}
+
+function deleteTask(taskId: string) {
+    return axios.delete(`http://localhost:8080/api/kanban/${taskId}`)
+}
+
+function promoteTask(task: Task) {
+    return axios.put('http://localhost:8080/api/kanban/next', task)
+}
+
+function demoteTask(task: Task) {
+    return axios.put('http://localhost:8080/api/kanban/prev', task)
 }
 
 export default function TaskOutput(props: TaskProps) {
-    return (
-        <div className="task">
+    /*
+    const deleteCard = () => {
+        deleteTask(props.task.id)
+            .then(props.onTaskManipulation)
+    }*/
+
+    const next = () => {
+        promoteTask(props.task)
+            .then(props.onTaskManipulation)
+    }
+
+    const prev = () => {
+        demoteTask(props.task)
+            .then(props.onTaskManipulation)
+    }
+        return (
+        <div className="tasks">
             <br/>
             <div className="task-information">
                 <div>
@@ -23,10 +53,10 @@ export default function TaskOutput(props: TaskProps) {
                     <span className="label">Status:</span> {props.task.status}
                 </div>
                 <div>
-                    <button className="button2" /*onClick={setPrevious}*/>previous</button>
-                    <button className="button2" /*onClick={setNext}*/>next</button>
-                    <button className="button2" /*onClick={setDelete}*/>delete</button>
-                    <button className="button2" /*onClick={setedit}*/>edit</button>
+                    <button className="button2" onClick={prev}>previous</button>
+                    <button className="button2" onClick={next}>next</button>
+                    <button className="button2" /*onClick={deleteCard}*/>delete</button>
+                    <button className="button2" /*onClick={edit}*/>edit</button>
                 </div>
             </div>
         </div>

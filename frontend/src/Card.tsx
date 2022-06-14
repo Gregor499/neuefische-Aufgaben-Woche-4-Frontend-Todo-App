@@ -3,6 +3,7 @@ import TaskOutput from "./TaskOutput";
 import {Task} from "./model";
 import './Style.css';
 import InputNewTask from "./InputNewTask";
+import axios from "axios";
 
 export default function Card() {
 
@@ -11,10 +12,8 @@ export default function Card() {
     const [error, setError] = useState("")
 
     function refresh() {
-        fetch("http://localhost:8080/api/react", {
-            method: "GET",
-        })
-            .then(response => response.json())
+        axios.get("http://localhost:8080/api/react", {})
+            .then(response => response.data)
             .then(tasks => setList(tasks))
             .catch(err => setError("error"));
     }
@@ -25,8 +24,7 @@ export default function Card() {
 
 
     const getList = () => {
-        return list.map(t => <TaskOutput
-            task={{id: t.id, task: t.task, description: t.description, status: t.status}}/>)
+        return list.map(t => <TaskOutput task={t}/>)
     }
 
     return (
@@ -35,13 +33,10 @@ export default function Card() {
                 <InputNewTask refreshFunction={refresh}/>
             </div>
 
-            <div className="tasks">
-                <div className={"tasks-headline"}>
-                    <h2><u>Aufgaben:</u></h2>
-                </div>
-                <div>
-                    {getList()}
-                </div>
+            <div className={"tasks-headline"}>
+                <h2><u>Aufgaben:</u></h2>
+                {getList()}
+
             </div>
         </div>
     )

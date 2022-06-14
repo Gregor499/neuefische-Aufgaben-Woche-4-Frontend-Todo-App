@@ -1,8 +1,8 @@
 export interface Task{
-    id: string;
+    id?: string;
     task: string;
     description: string;
-    status: string;
+    status?: string;
 }
 
 export interface PageData{
