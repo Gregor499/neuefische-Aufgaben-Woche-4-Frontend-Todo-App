@@ -29,7 +29,7 @@ export default function InputNewTask(props: inputNewTaskProps) {
                 props.refreshFunction()
             })
             .catch(err => {
-                setError("error")
+                setError("hier is ein fehler error")
                 console.log(err)
             });
     }
@@ -41,6 +41,7 @@ export default function InputNewTask(props: inputNewTaskProps) {
             <input className="text-field2" type="text" value={description} placeholder="Beschreibung" onChange={event => setDescription(event.target.value)}/>
             <br/>
             <button className="button1" onClick={input}>bestätigen</button>
+            {error&&<div>{error}</div>}
             <br/>
         </div>
     )

@@ -3,7 +3,7 @@ import TaskOutput from "./TaskOutput";
 import {Task} from "./model";
 import './Style.css';
 import InputNewTask from "./InputNewTask";
-import axios from "axios";
+import axios, {AxiosResponse} from "axios";
 
 export default function Card() {
 
@@ -22,9 +22,8 @@ export default function Card() {
         refresh();
     }, []);
 
-
     const getList = () => {
-        return list.map(t => <TaskOutput task={t}/>)
+        return list.map(t => <TaskOutput task={t} onTaskManipulation={refresh}/>)
     }
 
     return (

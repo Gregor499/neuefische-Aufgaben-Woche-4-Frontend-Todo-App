@@ -9,23 +9,23 @@ interface TaskProps {
 }
 
 function deleteTask(taskId: string) {
-    return axios.delete(`http://localhost:8080/api/kanban/${taskId}`)
+    return axios.delete(`http://localhost:8080/api/react/${taskId}`)
 }
 
 function promoteTask(task: Task) {
-    return axios.put('http://localhost:8080/api/kanban/next', task)
+    return axios.put('http://localhost:8080/api/react/next', task)
 }
 
 function demoteTask(task: Task) {
-    return axios.put('http://localhost:8080/api/kanban/prev', task)
+    return axios.put('http://localhost:8080/api/react/prev', task)
 }
 
 export default function TaskOutput(props: TaskProps) {
-    /*
+
     const deleteCard = () => {
-        deleteTask(props.task.id)
+        deleteTask(props.task.id!)
             .then(props.onTaskManipulation)
-    }*/
+    }
 
     const next = () => {
         promoteTask(props.task)
@@ -55,7 +55,7 @@ export default function TaskOutput(props: TaskProps) {
                 <div>
                     <button className="button2" onClick={prev}>previous</button>
                     <button className="button2" onClick={next}>next</button>
-                    <button className="button2" /*onClick={deleteCard}*/>delete</button>
+                    <button className="button2" onClick={deleteCard}>delete</button>
                     <button className="button2" /*onClick={edit}*/>edit</button>
                 </div>
             </div>
