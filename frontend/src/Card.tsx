@@ -15,7 +15,10 @@ export default function Card() {
         axios.get("http://localhost:8080/api/react", {})
             .then(response => response.data)
             .then(tasks => setList(tasks))
-            .catch(err => setError("error"));
+            .catch(err => {
+                setError("error")
+                console.log(err)
+            });
     }
 
     useEffect(() => {

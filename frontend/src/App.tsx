@@ -1,19 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import Card from "./Card";
-import InputNewTask from "./InputNewTask";
-import './Style.css';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import MainPage from "./MainPage";
 
-function App() {
+export default function App() {
     return (
-        <div className ="app">
-            <div className="headline">
-                <h1>TodoApp</h1>
-            </div>
-            <div className="card">
-                <Card />
-            </div>
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<MainPage />} />
+            </Routes>
+        </BrowserRouter>
     );
 }
-
-export default App;
