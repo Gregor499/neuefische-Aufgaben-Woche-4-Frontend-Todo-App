@@ -11,15 +11,15 @@ public class ToDoAppService {
      private final TaskRepository taskRepository;
 
     public Task addTask(Task taskToAdd){
-        return taskRepository.addTask(taskToAdd);
+        return taskRepository.save(taskToAdd);
     }
 
     public List<Task> addedTasks() {
-        return taskRepository.addedTasks();
+        return taskRepository.findAll();
     }
 
     public void deleteTask(String id) {
-        taskRepository.deleteTask(id);
+        taskRepository.deleteById(id);
     }
 
     public void switchStatus(Task task) {
@@ -31,10 +31,10 @@ public class ToDoAppService {
     }
 
     public Task getItemById(String id) {
-        return taskRepository.getItemById(id);
+        return taskRepository.findById(id);
     }
 
     public void editTask(Task task) {
-        taskRepository.editTask(task);
+        taskRepository.save(task);
     }
 }

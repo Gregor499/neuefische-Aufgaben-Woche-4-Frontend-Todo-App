@@ -2,15 +2,19 @@ package com.example.demo;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.*;
 
 @Repository
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 
-public class TaskRepository {
+public interface TaskRepository extends MongoRepository<Task, String> {}
+
+/*public class TaskRepository {
 	HashMap<String, Task> allMyTasks = new HashMap<>();
 
 	public Task addTask(Task newTask) {
@@ -49,4 +53,4 @@ public class TaskRepository {
 	public void editTask(Task task) {
 		allMyTasks.put(task.getId(), task);
 	}
-}
+}*/

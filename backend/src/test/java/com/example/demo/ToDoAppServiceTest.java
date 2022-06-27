@@ -15,7 +15,7 @@ class ToDoAppServiceTest {
 	@Test
 	void shouldAddTask() {
 		//GIVEN
-		Task testTask = new Task("efef", "sf", StatusState.OPEN);
+		Task testTask = new Task("testid", "efef", "sf", StatusState.OPEN);
 		TaskRepository testTaskRepository = Mockito.mock(TaskRepository.class);
 
 		ToDoAppService testToDoAppService = new ToDoAppService(testTaskRepository);
@@ -30,9 +30,9 @@ class ToDoAppServiceTest {
 	@Test
 	void shouldReturnAllTasks(){
 		//GIVEN
-		Task testTask1 = new Task("e111ef", "sf111", StatusState.DONE);
-		Task testTask2 = new Task("ef2dwaffef", "sfsqwf2f", StatusState.IN_PROGRESS);
-		Task testTask3 = new Task("efsdadw3ef", "sasdad3f", StatusState.OPEN);
+		Task testTask1 = new Task("testid1", "e111ef", "sf111", StatusState.DONE);
+		Task testTask2 = new Task("testid2", "ef2dwaffef", "sfsqwf2f", StatusState.IN_PROGRESS);
+		Task testTask3 = new Task("testid3", "efsdadw3ef", "sasdad3f", StatusState.OPEN);
 
 		TaskRepository testTaskRepository = Mockito.mock(TaskRepository.class);
 
