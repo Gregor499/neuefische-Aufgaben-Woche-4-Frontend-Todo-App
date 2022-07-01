@@ -37,11 +37,6 @@ public class ToDoAppController {
 		toDoAppService.deleteTask(id);
 	}
 
-/*	@GetMapping("/next")
-	public List<Task> listTasks2() {
-		return toDoAppService.addedTasks();
-	}*/
-
 	@PutMapping("/next")
 	@ResponseStatus(HttpStatus.IM_USED)
 	public void nextStatus(@RequestBody Task task) {
@@ -56,7 +51,7 @@ public class ToDoAppController {
 
 	@GetMapping("/{id}")
 	public Task getTaskToEdit(@PathVariable String id) {
-		return toDoAppService.getItemById(id);
+		return toDoAppService.getItemById(id).get();
 	}
 
 	@PutMapping

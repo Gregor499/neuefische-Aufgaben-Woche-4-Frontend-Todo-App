@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -23,14 +24,22 @@ public class ToDoAppService {
     }
 
     public void switchStatus(Task task) {
-        taskRepository.switchStatus(task);
+        switch (task.getStatus()) {
+            case OPEN -> task.setStatus((StatusState.IN_PROGRESS));
+            case IN_PROGRESS -> task.setStatus((StatusState.DONE));
+        }
+        taskRepository.save(task);
     }
 
     public void switchStatusBackwards(Task task) {
-        taskRepository.switchStatusBackwards(task);
+        switch (task.getStatus()) {
+            case IN_PROGRESS -> task.setStatus((StatusState.OPEN));
+            case DONE -> task.setStatus((StatusState.IN_PROGRESS));
+        }
+        taskRepository.save(task);
     }
 
-    public Task getItemById(String id) {
+    public Optional<Task> getItemById(String id) {
         return taskRepository.findById(id);
     }
 

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Task {
 
     @Id
