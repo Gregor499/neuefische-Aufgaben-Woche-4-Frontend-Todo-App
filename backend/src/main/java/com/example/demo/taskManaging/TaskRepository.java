@@ -1,13 +1,7 @@
-package com.example.demo;
+package com.example.demo.taskManaging;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.*;
 
 @Repository
 //@RequiredArgsConstructor

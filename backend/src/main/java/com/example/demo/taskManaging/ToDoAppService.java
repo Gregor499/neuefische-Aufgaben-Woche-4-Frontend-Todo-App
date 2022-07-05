@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.taskManaging;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

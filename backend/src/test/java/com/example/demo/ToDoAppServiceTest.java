@@ -1,13 +1,16 @@
 package com.example.demo;
 
 import static org.assertj.core.api.Assertions.*;
+
+import com.example.demo.taskManaging.StatusState;
+import com.example.demo.taskManaging.Task;
+import com.example.demo.taskManaging.TaskRepository;
+import com.example.demo.taskManaging.ToDoAppService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 class ToDoAppServiceTest {

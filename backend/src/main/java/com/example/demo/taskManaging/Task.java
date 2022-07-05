@@ -1,10 +1,8 @@
-package com.example.demo;
+package com.example.demo.taskManaging;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.stereotype.Repository;
 
 @Data
 @NoArgsConstructor

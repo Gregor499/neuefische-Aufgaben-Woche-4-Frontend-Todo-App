@@ -1,17 +1,11 @@
-package com.example.demo;
+package com.example.demo.taskManaging;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
-import javax.websocket.server.PathParam;
 @CrossOrigin
 @RestController
 @RequestMapping("api/react")

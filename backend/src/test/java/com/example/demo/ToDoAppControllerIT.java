@@ -1,8 +1,7 @@
 package com.example.demo;
 
 
-import static org.assertj.core.api.Assertions.*;
-
+import com.example.demo.taskManaging.Task;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
